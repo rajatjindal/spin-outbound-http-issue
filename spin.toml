@@ -1,0 +1,16 @@
+spin_manifest_version = "1"
+authors = ["Rajat Jindal <rajatjindal83@gmail.com>"]
+description = ""
+name = "spin-plugin-release-bot"
+trigger = { type = "http", base = "/" }
+version = "0.1.1"
+
+[[component]]
+id = "spin-plugin-release-bot"
+source = "target/wasm32-wasi/release/http_rust_outbound_http.wasm"
+allowed_outbound_hosts = ["https://api.github.com", "https://github.com"]
+[component.trigger]
+route = "/..."
+[component.build]
+command = "cargo build --target wasm32-wasi --release"
+
